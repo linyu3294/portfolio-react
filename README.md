@@ -18,9 +18,10 @@
 ## Environment Variables
 
 Add the following environment variables to netlify 
+Vite prefixes are necissary
 
-    API_KEY : {lambda api gateway key}
+    VITE_API_KEY={lambda api gateway key}
 
-    AWS_API_GATEWAY_URL: {api gateway key}
+    VITE_AWS_API_GATEWAY_URL={api gateway key}
 
-    CLIENT_DOMAIN: {domain for cross origin}
+    VITE_CLIENT_DOMAIN={domain for cross origin}
