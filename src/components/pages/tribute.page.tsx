@@ -27,12 +27,12 @@ const Tribute: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${process.env.aws_api_gateway_url}/kxf-lambda-tribute`, {
+      const response = await fetch(`${process.env.AWS_API_GATEWAY_URL}/kxf-lambda-tribute`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          "Access-Control-Request-Headers": `${process.env.client_domain}`,
-          'x-api-key': `${process.env.api_key}`,
+          "Access-Control-Request-Headers": `${process.env.CLIENT_DOMAIN}`,
+          'x-api-key': `${process.env.API_KEY}`,
         },
         body: JSON.stringify({
           "name": name,
@@ -64,12 +64,12 @@ const Tribute: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.aws_api_gateway_url}/kxf-lambda-tributes`, {
+        const response = await fetch(`${process.env.AWS_API_GATEWAY_URL}/kxf-lambda-tributes`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            "Access-Control-Request-Headers": `${process.env.client_domain}`,
-            'x-api-key': `${process.env.api_key}`,
+            "Access-Control-Request-Headers": `${process.env.CLIENT_DOMAIN}`,
+            'x-api-key': `${process.env.API_KEY}`,
           },
         });
   

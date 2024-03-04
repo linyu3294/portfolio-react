@@ -30,12 +30,12 @@ const Donate: React.FC = () => {
     setLoading(true);
     const dollarAmount = (selectedAmount || customAmount)! * 100
     try {
-      const response = await fetch(`${process.env.aws_api_gateway_url}/kxf-lambda-donate`, {
+      const response = await fetch(`${process.env.AWS_API_GATEWAY_URL}/kxf-lambda-donate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          "Access-Control-Request-Headers": `${process.env.client_domain}`,
-          'x-api-key': `${process.env.api_key}`,
+          "Access-Control-Request-Headers": `${process.env.CLIENT_DOMAIN}`,
+          'x-api-key': `${process.env.API_KEY}`,
         },
         body: JSON.stringify({ price: dollarAmount.toString(), image: 'https://images.unsplash.com/photo-1708348244831-07e906ded4ae?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}),
       });

@@ -19,8 +19,8 @@
 
 Add the following environment variables to netlify 
 
-    api_key : {lambda api gateway key}
+    API_KEY : {lambda api gateway key}
 
-    aws_api_gateway_url: {api gateway key}
+    AWS_API_GATEWAY_URL: {api gateway key}
 
-    client_domain: {domain for cross origin}
+    CLIENT_DOMAIN: {domain for cross origin}
