@@ -9,16 +9,16 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("AWS_API_GATEWAY_URL:", process.env.AWS_API_GATEWAY_URL);
-    console.log("CLIENT_DOMAIN:", process.env.CLIENT_DOMAIN);
-    console.log("API_KEY:", process.env.API_KEY);
+    console.log("AWS_API_GATEWAY_URL:", process.env.REACT_APP_AWS_API_GATEWAY_URL);
+    console.log("CLIENT_DOMAIN:", process.env.REACT_APP_CLIENT_DOMAIN);
+    console.log("API_KEY:", process.env.REACT_APP_API_KEY);
     try {
-      const response = await fetch(`${process.env.AWS_API_GATEWAY_URL}/kxf-lambda-contact`, {
+      const response = await fetch(`${process.env.REACT_APP_AWS_API_GATEWAY_URL}/kxf-lambda-contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          "Access-Control-Request-Headers": `${process.env.CLIENT_DOMAIN}`,
-          'x-api-key': `${process.env.API_KEY}`,
+          "Access-Control-Request-Headers": `${process.env.REACT_APP_CLIENT_DOMAIN}`,
+          'x-api-key': `${process.env.REACT_APP_API_KEY}`,
         },
         body: JSON.stringify({ sender, firstName, lastName, message }),
       });

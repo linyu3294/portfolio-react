@@ -57,12 +57,12 @@ const GalleryView = () => {
     const getGalleryItems = async () => {
 
       try {
-        const response = await fetch(`${process.env.AWS_API_GATEWAY_URL}/kxf-lambda-gallery`, {
+        const response = await fetch(`${process.env.REACT_APP_AWS_API_GATEWAY_URL}/kxf-lambda-gallery`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            "Access-Control-Request-Headers": `${process.env.CLIENT_DOMAIN}`,
-            'x-api-key': `${process.env.API_KEY}`,
+            "Access-Control-Request-Headers": `${process.env.REACT_APP_CLIENT_DOMAIN}`,
+            'x-api-key': `${process.env.REACT_APP_API_KEY}`,
           },
         });
         
