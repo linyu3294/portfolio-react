@@ -101,7 +101,7 @@ const GalleryView = () => {
     <div className="page-container">
       <h1 className="title">Gallery</h1>
       {!photoIndex && photoIndex !== 0 && (
-        <Gallery photos={content} onClick={(e, { index }) => handleOpenLightbox(index)} />
+        <Gallery photos={content} onClick={(_e, { index }) => handleOpenLightbox(index)} />
       )}
       {photoIndex !== null && (
         <div className="lightbox-backdrop" onClick={handleCloseLightbox}>

@@ -24,8 +24,8 @@ const Donate: React.FC = () => {
     setCustomAmount(null); // Clear custom amount when a card is selected
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
     // Handle submit logic
     setLoading(true);
     const dollarAmount = (selectedAmount || customAmount)! * 100
