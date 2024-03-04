@@ -17,6 +17,10 @@
 
 ## Environment Variables
 
-  Add the following environment variables to netlify 
+Add the following environment variables to netlify 
 
-    
+    api_key : {lambda api gateway key}
+
+    aws_api_gateway_url: {api gateway key}
+
+    client_domain: {domain for cross origin}
