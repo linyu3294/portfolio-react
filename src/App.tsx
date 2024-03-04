@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import "./style/styles.css";
+import NavBar from "./components/navbar.component";
+import FooterBar from "./components/footerbar.component";
+import Donate from "./components/pages/donate.page";
+import Home from "./components/pages/home.page";
+import Tribute from "./components/pages/tribute.page";
+import Life from "./components/pages/life.page";
+import Gallery from "./components/pages/gallery.page";
+import Contact from "./components/pages/contact.page";
+import DonateSuccess from "./components/pages/donate-success.page.";
 
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/donate" Component={Donate} />
+        <Route path="/" Component={Home} />
+        <Route path="/tribute" Component={Tribute} />
+        <Route path="/life" Component={Life} />
+        <Route path="/gallery" Component={Gallery} />
+        <Route path="/contact" Component={Contact} />
+        <Route path="/donate/success" Component={DonateSuccess} />
+      </Routes>
+      <FooterBar />
+    </Router>
+  );
+};
 
-export default App
+export default App;

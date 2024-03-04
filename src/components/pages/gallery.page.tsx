@@ -1,0 +1,120 @@
+import React, { useEffect } from "react";
+import Gallery from "react-photo-gallery";
+
+interface Content {
+  id: string;
+  src: string;
+  width: number;
+  height: number;
+}
+
+const Lightbox = React.memo(({ content, photoIndex, onClose, setPhotoIndex }: {
+  content: Content[];
+  photoIndex: number;
+  onClose: (newIndex: number | null) => void;
+  setPhotoIndex: (newIndex: number) => void;
+}) => {
+
+  const handlePrev = () => {
+    setPhotoIndex(photoIndex === 0 ? content.length - 1 : photoIndex - 1);
+  };
+
+  const handleNext = () => {
+    setPhotoIndex(photoIndex === content.length - 1 ? 0 : photoIndex + 1);
+  };
+
+  return (
+    <div className="lightbox-overlay"
+      onClick={() => onClose(null)}
+    >
+      <div className="lightbox-content">
+        {photoIndex !== null && (
+          <img
+            src={content[photoIndex].src}
+            alt={`Photo ${photoIndex + 1}`}
+            className="lightbox-image"
+            onClick={(e) => e.stopPropagation()}
+          />
+        )}
+        <button className="lightbox-prev" onClick={(e) => { e.stopPropagation(); handlePrev(); }}>
+          &lt;
+        </button>
+        <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); handleNext(); }}>
+          &gt;
+        </button>
+      </div>
+    </div>
+  );
+});
+
+
+
+const GalleryView = () => {
+  const [photoIndex, setPhotoIndex] = React.useState<number | null>(null);
+  const [content, setContent] = React.useState<Content[]>([]);
+
+  useEffect(() => {
+    const getGalleryItems = async () => {
+
+      try {
+        const response = await fetch(`${process.env.aws_api_gateway_url}/kxf-lambda-gallery`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            "Access-Control-Request-Headers": `${process.env.client_domain}`,
+            'x-api-key': `${process.env.api_key}`,
+          },
+        });
+        
+        if (response) {
+          if (response.ok) {
+            const rawItemsInJson = await response.json();
+            const items = rawItemsInJson.map((item: any) => {
+              return {
+                src: item.url,
+                width: parseInt(item.width),
+                height: parseInt(item.height),
+                id: item.id
+              };
+            });
+            setContent(items);
+          }
+        } else {
+          console.error('Failed to created checkout session');
+        }
+      } catch (error) {
+        console.error('Transaction Error:', error);
+      }
+    };
+    getGalleryItems();
+  }, []);
+
+  const handleOpenLightbox = (index: number) => {
+    setPhotoIndex(index);
+  };
+
+  const handleCloseLightbox = () => {
+    setPhotoIndex(null); // Set photoIndex to null to close the lightbox
+  };
+
+  return (
+    <div className="page-container">
+      <h1 className="title">Gallery</h1>
+      {!photoIndex && photoIndex !== 0 && (
+        <Gallery photos={content} onClick={(e, { index }) => handleOpenLightbox(index)} />
+      )}
+      {photoIndex !== null && (
+        <div className="lightbox-backdrop" onClick={handleCloseLightbox}>
+          <Lightbox
+            content={content}
+            photoIndex={photoIndex}
+            onClose={handleCloseLightbox}
+            setPhotoIndex={setPhotoIndex}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default GalleryView;
