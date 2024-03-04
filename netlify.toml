@@ -1,2 +1,2 @@
 [build]
-  npm config set legacy-peer-deps true && npm install --legacy-peer-deps
+  command = "npm config set legacy-peer-deps true && npm install --legacy-peer-deps"
