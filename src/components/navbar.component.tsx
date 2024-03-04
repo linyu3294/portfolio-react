@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import DonationIcon from "./donation-icon.component";
+import MusicPlayer from "./music-player.component";
 
 const NavBar: React.FC = () => {
   return (
     <nav className="navbar-container">
       <DonationIcon />
       <Link to="/donate">Donate</Link>
+      <MusicPlayer url="https://kxf-s3-music.s3.amazonaws.com/Luma's+Lullaby+-+Mario+Galaxy.mp3" />
       <div className="spacer" />
       <div
        className="navbar-profile"

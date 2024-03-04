@@ -113,6 +113,17 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+div.sound-icon-container {
+  position: relative; /* Set the position to relative */
+  top: -30px; /* Move the container up by 10 pixels */
+  width: 24px; /* Set a fixed width for the container */
+  height: 24px; /* Set a fixed height for the container */
+}
+
+div.sound-icon {
+  width: 24px; /* Set a fixed width for the icon */
+  height: 24px; /* Set a fixed height for the icon */
+}
 
 /* ------------Donation Page---------------- */
 /* Styles for the Donate page */
