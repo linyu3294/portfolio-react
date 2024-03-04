@@ -9,6 +9,9 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("AWS_API_GATEWAY_URL:", process.env.AWS_API_GATEWAY_URL);
+    console.log("CLIENT_DOMAIN:", process.env.CLIENT_DOMAIN);
+    console.log("API_KEY:", process.env.API_KEY);
     try {
       const response = await fetch(`${process.env.AWS_API_GATEWAY_URL}/kxf-lambda-contact`, {
         method: 'POST',
