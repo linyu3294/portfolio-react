@@ -19,7 +19,7 @@ nav a {
   margin-left: -0.5rem; /* Decreased margin between links */
   border-radius: 0.25rem;
   transition: transform 0.3s ease; /* Use transform for the transition effect */
-  font-size: 20px; /* Set the default font size */
+  font-size: 30px; /* Set the default font size */
 }
 
 nav a:hover {
