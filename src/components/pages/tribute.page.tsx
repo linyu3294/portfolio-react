@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import MusicalNote from "../musical-note.component";
-import ImageComponent from "../flower-image.component";
 
 
 type Tribute ={
