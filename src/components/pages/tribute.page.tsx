@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import MusicalNote from "../musical-note.component";
+import ImageComponent from "../flower-image.component";
 
 
 type Tribute ={
@@ -103,7 +104,6 @@ const Tribute: React.FC = () => {
        {tributes.map((tribute) => (
 
         <div key={tribute.id} className="tribute-container">
-          <br/>
           <br/>
           <MusicalNote 
             id={tribute.id}
