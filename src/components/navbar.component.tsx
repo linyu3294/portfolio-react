@@ -6,7 +6,7 @@ const NavBar: React.FC = () => {
   return (
     <nav className="navbar-container">
       <DonationIcon />
-      <Link to="/donate">Donate</Link>
+      {/* <Link to="/donate">Donate</Link> */}
       <MusicPlayer url="https://kxf-s3-music.s3.amazonaws.com/Luma's+Lullaby+-+Mario+Galaxy.mp3" />
       <div className="spacer" />
       <div

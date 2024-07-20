@@ -9,13 +9,13 @@ const Home: React.FC = () => {
           Welcome to our tribute site for Kathy Xue. Here, we celebrate her life and the incredible impact she had on us all.
         </p>
         <p>
-          Kathy was more than a friend or family member; she was a beacon of light and a true advocate for what she believed in. This site is our way of keeping her memory alive and honoring the amazing person she was.
+          Kathy was more than a friend or family member. She was a beacon of light and was a true advocate for what she believed in. She had a kindred✨ and beautiful🌹 personality that drew us close. She loved animals, especially cats 🐱🐈. During her studies at MIT, she would adorn her college room with all kinds of different plants🌱🪴🌵. When she was not studying or busy with creating the next masterpiece for the MIT video game orchestra🎼🎶🎷🎸🎹, she would pick up a game of chess or play the guitar. And of course, let's not forget her brilliance in mathematics is seldomly rivaled🧠💡📚. Her life was full of possiblities and wonder! This site is our way of keeping her memory alive and honoring the amazing person she was.
         </p>
-        <p>
+        {/* <p>
           The Kathy Xue Fund is our way of continuing her legacy of giving back. The funds raised will support causes that Kathy was passionate about, ensuring her spirit lives on.
-        </p>
+        </p> */}
         <p>
-          Join us in exploring this site, sharing your memories, and continuing Kathy's legacy of kindness and generosity. Together, we can make a difference in her honor.
+          Join us in exploring this site, sharing your memories of Kathy. Together, we can make a difference in her honor. 🫶❤️
         </p>
       </div>
     </div>
