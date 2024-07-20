@@ -99,6 +99,8 @@ const Tribute: React.FC = () => {
     <div className="page-container">
       <div className="tribute-title-container">
         <h1 className="title">In Memoriam</h1>
+        <p>Please scroll to the bottom of the page to add your personal tribute. ❤️ </p>
+
       </div>
       <div>
        {tributes.map((tribute) => (

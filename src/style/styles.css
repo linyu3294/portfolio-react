@@ -330,7 +330,10 @@ textarea {
 }
 
 .tribute-title-container {
-  margin-bottom: 80px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .upload-tribute-button {
