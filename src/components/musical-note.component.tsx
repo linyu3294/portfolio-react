@@ -16,7 +16,7 @@ const MusicalNote: React.FC<TributeProps> = (props: TributeProps) => {
   return (
     <div className="musical-note">
       <ImageComponent
-        imageSrc='https://raw.githubusercontent.com/linyu3294/kxf-react/main/src/media/bouquet1.png?token=GHSAT0AAAAAACP3SE722444SNKV26BDATX2ZU737EQ'
+        imageSrc='https://kxf-s3-public.s3.amazonaws.com/bouquet-1.png'
       />
       <div> <MusicalNoteCap /></div>
         <div className="note-container">
