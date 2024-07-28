@@ -24,7 +24,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = (props: MusicPlayerProps) => {
   return (
     <div className="sound-icon-container">
       <div onClick={handleTogglePlay}>
-        { isPlaying && <div onClick={handleToggleMute} className="sound-icon" ><Volume /></div>}
+        { isPlaying && <div onClick={handleToggleMute} className="sound-icon"><Volume /></div>}
         { !isPlaying && <div onClick={handleToggleMute} className="sound-icon" ><Mute /></div>}
       </div>
 

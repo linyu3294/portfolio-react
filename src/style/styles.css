@@ -13,7 +13,7 @@ nav div.spacer {
 }
 
 nav a {
-  color: rgb(45, 41, 41);
+  color: #dce5e9;
   text-decoration: none;
   padding: 0.5rem 1rem; /* Adjusted padding for better button feel */
   margin-left: -0.5rem; /* Decreased margin between links */
@@ -27,7 +27,8 @@ nav a:hover {
 }
 
 nav.navbar-container {
-  background-color: #a591d6f3;
+  background-image: url('https://kxf-s3-public.s3.amazonaws.com/sunset-charles-1.png');
+  background-size: 100%; /* Shrink the background image to 90% of its original size */
   align-items: center;
   display: flex;
   justify-content: flex-end; /* Align items to the end */
@@ -121,6 +122,7 @@ div.sound-icon-container {
 }
 
 div.sound-icon {
+  fill: red; /* Change this to your desired color */
   width: 24px; /* Set a fixed width for the icon */
   height: 24px; /* Set a fixed height for the icon */
 }
