@@ -35,10 +35,6 @@ nav.navbar-container {
   height: 300px; /* Increased height for the navbar */
 }
 
-nav.navbar-container .spacer {
-  flex-grow: 1; /* Use flex-grow to push the links to the right */
-}
-
 .navbar-profile {
   width: 200px;
   height: 200px;

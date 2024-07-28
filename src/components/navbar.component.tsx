@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
       <div
        className="navbar-profile"
        style={{ 
-        backgroundImage: `url('https://kxf-s3-public.s3.amazonaws.com/kathy-profile-2.JPG')`,
+        backgroundImage: `url('https://kxf-s3-public.s3.amazonaws.com/kathy-profile-4.JPG')`,
         backgroundSize: 'cover', // Optional: adjust as needed
         backgroundPosition: 'center' // Optional: adjust as needed
       }}
