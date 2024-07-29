@@ -51,10 +51,15 @@ nav a:hover {
 }
 
 nav.footer-container {
-  background-color: #a591d6f3;
-  padding: 1rem; /* Increased padding for better spacing */
-  display: flex;
-  justify-content: flex-end; /* Align items to the end */
+  background-image: url('https://kxf-s3-public.s3.amazonaws.com/lavendar-field.jpg');
+  background-size: cover; /* Ensure the image covers the entire area */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center; /* Center the background image */
+  align-items: top;
+  display: flex-center;
+  justify-content: flex-end;
+  height: 150px; /* Fixed height for the navbar */
+  color: #0b3c52; /* Replace this with your desired color */
 }
 
 div.page-container {
