@@ -55,7 +55,11 @@ const GalleryView = () => {
 
   useEffect(() => {
     const getGalleryItems = async () => {
-
+      // ## Upload JPGs in S3 Folder
+      // Make sure to add the following meta-data for each image
+      //     * x-amz-meta-width
+      //     * x-amz-meta-width
+      // Use Postman to debug. Look into CloudWatch > Log groups > /aws/lambda/kxf-lambda-gallery for any error handling. Sometimes the response can be null or not return the image if the key does not match the name of the file.
       try {
         const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/kxf-lambda-gallery`, {
           method: 'GET',
