@@ -12,7 +12,20 @@ nav div.spacer {
   flex-grow: 1; /* Use flex-grow to push the links to the right */
 }
 
+nav.navbar-container {
+  background-image: url('https://kxf-s3-public.s3.amazonaws.com/sunset-charles-1.png');
+  background-size: cover; /* Ensure the image covers the entire area */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center; /* Center the background image */
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  height: 300px; /* Fixed height for the navbar */
+}
+
 nav a {
+  padding-top: 80px; /* Adjust this value as needed to move text down */
+  padding-bottom: 0; /* Ensure bottom padding is 0 to maintain height */
   color: #dce5e9;
   text-decoration: none;
   padding: 0.5rem 1rem; /* Adjusted padding for better button feel */
@@ -25,16 +38,6 @@ nav a {
 nav a:hover {
   transform: scale(1.2); /* Increase the size of the hovered item */
 }
-
-nav.navbar-container {
-  background-image: url('https://kxf-s3-public.s3.amazonaws.com/sunset-charles-1.png');
-  background-size: 100%; /* Shrink the background image to 90% of its original size */
-  align-items: center;
-  display: flex;
-  justify-content: flex-end; /* Align items to the end */
-  height: 300px; /* Increased height for the navbar */
-}
-
 .navbar-profile {
   width: 200px;
   height: 200px;
