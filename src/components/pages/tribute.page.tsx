@@ -41,14 +41,8 @@ const Tribute: React.FC = () => {
         }),
       });
 
-      setTributes([...tributes, {
-        // This is a temporary id until the database returns the real id
-        // This is to prevent a re-render of the entire list of tributes
-        "id": "1", 
-        "name": name,
-        "tribute": tribute,
-        "created_at": new Date().toISOString(),
-      }]);
+      // Dummy data to simulate a successful upload
+      setTributes([...tributes]);
 
       if (response.ok) {
         console.log('Tribute uploaded');
