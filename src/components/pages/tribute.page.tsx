@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import MusicalNote from "../musical-note.component";
+import MusicalNote from "../tribute-entry.component";
 
 
 type Tribute ={
@@ -20,8 +20,65 @@ const convertToUserFriendlyTime = (time: string) => {
 
 const Tribute: React.FC = () => {
   const [tribute, setTribute] = React.useState<string>("");
-  const [tributes, setTributes] = React.useState<Tribute[]>([]);
+  // const [tributes, setTributes] = React.useState<Tribute[]>([]);
   const [name, setName] = React.useState<string>("");
+
+  const tributes: Tribute[] = [
+    {
+      "id": "1",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+    {
+      "id": "2",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+    {
+      "id": "3",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+    {
+      "id": "4",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+    {
+      "id": "5",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+    {
+      "id": "6",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+    {
+      "id": "7",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+    {
+      "id": "8",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+    {
+      "id": "9",
+      "name": "Kenny",
+      "tribute": "You are the best!",
+      "created_at": "2021-09-15T18:00:00Z",
+    },
+  ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -81,7 +138,7 @@ const Tribute: React.FC = () => {
             created_at_date: new Date(tribute.created_at),
           }))
           .sort((a: Tribute, b:Tribute) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());;
-          setTributes(sortedTributes);
+          // setTributes(sortedTributes);
         } else {
           console.error('Failed to load tributes from database');
         }

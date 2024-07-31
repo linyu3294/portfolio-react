@@ -16,16 +16,13 @@ const MusicalNote: React.FC<TributeProps> = (props: TributeProps) => {
   return (
     <div className="musical-note">
       <ImageComponent
-        imageSrc='https://kxf-s3-public.s3.amazonaws.com/bouquet-1.png'
+        imageSrc='https://kxf-s3-public.s3.amazonaws.com/pink-rose.jpg'
       />
-      <div> <MusicalNoteCap /></div>
         <div className="note-container">
           <p className="tribute-name">{props.name}</p>
             <div className="tribute-date">{props.created_at}</div>
           <p className="tribute-body">{props.tribute}</p>
-        <div> <MusicalNoteBed /></div>
         <br/>
-        <div><LeafBorder/></div>
       </div>
     </div>
   );
