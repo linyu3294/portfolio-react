@@ -54,7 +54,7 @@ const Visit: React.FC = () => {
         />
         <p>🌸 Kathy's Resting Place: Lot 8677 (between ranges 229-230)</p>
 
-        <p>If you have any questions or need more information, please reach out to us at vivianshi001@gmail.com.</p>
+        <p>If you have any questions or need more information, please reach out to us at wish.sw@gmail.com.</p>
 
         <div className="map-image"></div>
         </form>
