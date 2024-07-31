@@ -1,7 +1,7 @@
 const FooterBar: React.FC = () => {
   return (
     <nav className="footer-container">
-      <p>&copy; 2024 Kathy Xue Fundation Inc. All rights reserved.</p>
+      <p>Infinite Melodies, Timeless Equations, Sweetest Smile, Forever in Our Hearts!</p>
     </nav>
   );
 };
