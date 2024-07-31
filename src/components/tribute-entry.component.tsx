@@ -9,7 +9,7 @@ type TributeProps ={
   created_at: string;
 }
 
-const MusicalNote: React.FC<TributeProps> = (props: TributeProps) => {
+const TributeEntry: React.FC<TributeProps> = (props: TributeProps) => {
   return (
     <div className="musical-note">
       <ImageComponent
@@ -25,4 +25,4 @@ const MusicalNote: React.FC<TributeProps> = (props: TributeProps) => {
   );
 };
 
-export default MusicalNote;
+export default TributeEntry;

@@ -22,6 +22,7 @@ const Tribute: React.FC = () => {
   const [tribute, setTribute] = React.useState<string>("");
   const [tributes, setTributes] = React.useState<Tribute[]>([]);
   const [name, setName] = React.useState<string>("");
+  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -81,7 +82,7 @@ const Tribute: React.FC = () => {
             created_at_date: new Date(tribute.created_at),
           }))
           .sort((a: Tribute, b:Tribute) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());;
-          // setTributes(sortedTributes);
+          setTributes(sortedTributes);
         } else {
           console.error('Failed to load tributes from database');
         }
