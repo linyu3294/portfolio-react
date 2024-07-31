@@ -20,7 +20,7 @@ const NavBar: React.FC = () => {
       <Link to="/">Home</Link>
       <Link to="/gallery">Gallery</Link>
       <Link to="/tribute">Tribute</Link>
-      <Link to="/contact">Contact</Link>
+      <Link to="/visit">Visit</Link>
     </nav>
   );
 };

@@ -9,7 +9,7 @@ import Home from "./components/pages/home.page";
 import Tribute from "./components/pages/tribute.page";
 import Life from "./components/pages/life.page";
 import Gallery from "./components/pages/gallery.page";
-import Contact from "./components/pages/contact.page";
+import Visit from "./components/pages/visit.page";
 import DonateSuccess from "./components/pages/donate-success.page.";
 
 const App: React.FC = () => {
@@ -22,7 +22,7 @@ const App: React.FC = () => {
         <Route path="/tribute" Component={Tribute} />
         <Route path="/life" Component={Life} />
         <Route path="/gallery" Component={Gallery} />
-        <Route path="/contact" Component={Contact} />
+        <Route path="/visit" Component={Visit} />
         <Route path="/donate/success" Component={DonateSuccess} />
       </Routes>
       <FooterBar />
