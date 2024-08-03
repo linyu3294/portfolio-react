@@ -14,6 +14,7 @@ const Music: React.FC = () => {
                 autoPlayAfterSrcChange={false}
             />
 
+
             <br></br>
             <br></br>
             <br></br>
@@ -25,6 +26,7 @@ const Music: React.FC = () => {
                 autoPlayAfterSrcChange={false}
             />
 
+
             <br></br>
             <br></br>
             <br></br>
@@ -35,6 +37,19 @@ const Music: React.FC = () => {
                 onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             />
+
+            
+            <br></br>
+            <br></br>
+            <br></br>
+            <h3> Orchestral Piece </h3>
+            <AudioPlayer
+                autoPlay={false}
+                src="https://kxf-s3-music.s3.amazonaws.com/orchestral-piece.wav"
+                onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
+                autoPlayAfterSrcChange={false}
+            />
+
 
             <br></br>
             <br></br>
@@ -59,16 +74,6 @@ const Music: React.FC = () => {
                 autoPlayAfterSrcChange={false}
             /> 
 
-            <br></br>
-            <br></br>
-            <br></br>
-            <h3> Orchestral Piece </h3>
-            <AudioPlayer
-                autoPlay={false}
-                src="https://kxf-s3-music.s3.amazonaws.com/orchestral-piece.wav"
-                onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
-                autoPlayAfterSrcChange={false}
-            />
 
             <br></br>
             <br></br>
