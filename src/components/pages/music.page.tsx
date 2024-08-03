@@ -4,6 +4,10 @@ import 'react-h5-audio-player/lib/styles.css';
 
 const Music: React.FC = () => {
 
+    const divider = () => {
+        return <div> <br/> <br/> <br/> <br/> <br/> <br/> <br/> </div>
+    }
+
     return (
         <div className="page-container">
             <h3> Remake of Luma Theme - Super Mario Galaxy </h3>
@@ -13,11 +17,7 @@ const Music: React.FC = () => {
                 onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             />
-
-
-            <br></br>
-            <br></br>
-            <br></br>
+            {divider()}
             <h3> Another Core - Undertale (MIT Video Game Orchestra)</h3>
             <AudioPlayer
                 autoPlay={false}
@@ -25,11 +25,7 @@ const Music: React.FC = () => {
                 onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             />
-
-
-            <br></br>
-            <br></br>
-            <br></br>
+            {divider()}
             <h3> National Park - Pokemon HGSS (MIT Video Game Orchestra)</h3>
             <AudioPlayer
                 autoPlay={false}
@@ -37,11 +33,7 @@ const Music: React.FC = () => {
                 onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             />
-
-            
-            <br></br>
-            <br></br>
-            <br></br>
+            {divider()}
             <h3> Orchestral Piece </h3>
             <AudioPlayer
                 autoPlay={false}
@@ -49,11 +41,7 @@ const Music: React.FC = () => {
                 onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             />
-
-
-            <br></br>
-            <br></br>
-            <br></br>
+            {divider()}
             <h3> Homage to Bach - Two Fugues and Preludes</h3>
             <AudioPlayer
                 autoPlay={false}
@@ -61,11 +49,7 @@ const Music: React.FC = () => {
                 onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             />
-
-
-            <br></br>
-            <br></br>
-            <br></br>
+            {divider()}
             <h3> Faded </h3>
             <AudioPlayer
                 autoPlay={false}
@@ -73,11 +57,7 @@ const Music: React.FC = () => {
                 onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             /> 
-
-
-            <br></br>
-            <br></br>
-            <br></br>
+            {divider()}
             <h3> Credits Theme </h3>
             <AudioPlayer
                 autoPlay={false}
