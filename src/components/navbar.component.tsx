@@ -20,6 +20,7 @@ const NavBar: React.FC = () => {
       <Link to="/">Home</Link>
       <Link to="/gallery">Gallery</Link>
       <Link to="/tribute">Tribute</Link>
+      <Link to="/music">Music</Link>
       <Link to="/visit">Visit</Link>
     </nav>
   );
