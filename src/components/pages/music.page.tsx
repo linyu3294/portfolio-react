@@ -5,7 +5,7 @@ import 'react-h5-audio-player/lib/styles.css';
 const Music: React.FC = () => {
 
     const divider = () => {
-        return <div> <br/> <br/> <br/> <br/> <br/> <br/> <br/> </div>
+        return <div> <br/> <br/> <br/> <br/> <br/> </div>
     }
 
     return (
@@ -18,18 +18,18 @@ const Music: React.FC = () => {
                 autoPlayAfterSrcChange={false}
             />
             {divider()}
-            <h3> Another Core - Undertale (MIT Video Game Orchestra)</h3>
-            <AudioPlayer
-                autoPlay={false}
-                src="https://kxf-s3-music.s3.amazonaws.com/vgo-another-core-undertale.wav"
-                onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
-                autoPlayAfterSrcChange={false}
-            />
-            {divider()}
             <h3> National Park - Pokemon HGSS (MIT Video Game Orchestra)</h3>
             <AudioPlayer
                 autoPlay={false}
                 src="https://kxf-s3-music.s3.amazonaws.com/vgo-national-park-pokemon-hgss.mp3"
+                onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
+                autoPlayAfterSrcChange={false}
+            />
+            {divider()}
+            <h3> Another Core - Undertale (MIT Video Game Orchestra)</h3>
+            <AudioPlayer
+                autoPlay={false}
+                src="https://kxf-s3-music.s3.amazonaws.com/vgo-another-core-undertale.wav"
                 onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             />
