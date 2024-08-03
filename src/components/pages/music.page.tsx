@@ -9,9 +9,9 @@ const Music: React.FC = () => {
         <h3> Remake of Luma Theme - Super Mario Galaxy </h3>
 
             <AudioPlayer
-                autoPlay
+                autoPlay={false}
                 src="https://kxf-s3-music.s3.amazonaws.com/Luma's+Lullaby+-+Mario+Galaxy.mp3"
-                onPlay={ e => console.log("onPlay")}
+                onPlay={ e => console.log(`There is an error loading this song, ${e}`)}
                 autoPlayAfterSrcChange={false}
             />
         </div>
