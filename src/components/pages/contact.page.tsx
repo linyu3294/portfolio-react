@@ -1,79 +1,70 @@
-import React from "react";
-
-type Tribute ={
-  id: string;
-  name: string;
-  tribute: string;
-  created_at: string;
-}
+import React, { useState } from "react";
 
 const Contact: React.FC = () => {
-  const [tribute, setTribute] = React.useState<string>("");
-  const [tributes, setTributes] = React.useState<Tribute[]>([]);
-  const [name, setName] = React.useState<string>("");
-  
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/kxf-lambda-tribute`, {
-        method: 'POST',
+      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/contact-form`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           "Access-Control-Request-Headers": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
-          'x-api-key': `${import.meta.env.VITE_API_KEY}`,
+          "x-api-key": `${import.meta.env.VITE_API_KEY}`,
         },
-        body: JSON.stringify({
-          "name": name,
-          "tribute": tribute
-        }),
+        body: JSON.stringify({ name, email, message }),
       });
 
-      // Dummy data to simulate a successful upload
-      setTributes([...tributes]);
-
       if (response.ok) {
-        console.log('Tribute uploaded');
+        console.log("Message sent successfully");
         setName("");
-        setTribute("");
+        setEmail("");
+        setMessage("");
       } else {
-        console.error('Failed to upload tribute');
+        console.error("Failed to send message");
       }
     } catch (error) {
-      console.error('Transaction Error:', error);
+      console.error("Error sending message:", error);
     }
   };
 
-  
   return (
     <div className="page-container">
-      <div className="tribute-title-container">
-        <h1 className="title">In Memoriam</h1>
-        <p>Please scroll to the bottom of the page to add your personal tribute. ❤️ </p>
+      <div className="contact-title-container">
+        <h1 className="title">Contact Us</h1>
+        <p>I’d love to hear from you! Send me an email 📩</p>
+      </div>
 
-      </div>
-      <div>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+      <form className="contact-form" onSubmit={handleSubmit}>
         <input
+          type="text"
           placeholder="Your Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
-        <textarea
-          value={tribute}
-          placeholder="Type your message here..."
-          onChange={(e) => setTribute(e.target.value)}
-          rows={20}
+
+        <input
+          type="email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button className="upload-tribute-button" type="submit">Upload</button>
+
+        <textarea
+          placeholder="Type your message here..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          rows={10}
+          required
+        />
+
+        <button className="submit-button" type="submit">Send Message</button>
       </form>
     </div>
   );
