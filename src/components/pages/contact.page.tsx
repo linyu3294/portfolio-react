@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import MusicalNote from "../tribute-entry.component";
-
+import React from "react";
 
 type Tribute ={
   id: string;
@@ -9,16 +7,7 @@ type Tribute ={
   created_at: string;
 }
 
-const convertToUserFriendlyTime = (time: string) => {
-  const date = new Date(time);
-  return date.toLocaleString(undefined, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-}
-
-const Tribute: React.FC = () => {
+const Contact: React.FC = () => {
   const [tribute, setTribute] = React.useState<string>("");
   const [tributes, setTributes] = React.useState<Tribute[]>([]);
   const [name, setName] = React.useState<string>("");
@@ -56,38 +45,6 @@ const Tribute: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/kxf-lambda-tributes`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            "Access-Control-Request-Headers": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
-            'x-api-key': `${import.meta.env.VITE_API_KEY}`,
-          },
-        });
-  
-        if (response.ok) {
-          console.log('Tribute loaded from database');
-          const rawTributes = await response.json()
-          const sortedTributes = rawTributes.map((tribute: Tribute) => ({
-            ...tribute,
-            created_at_date: new Date(tribute.created_at),
-          }))
-          .sort((a: Tribute, b:Tribute) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());;
-          setTributes(sortedTributes);
-        } else {
-          console.error('Failed to load tributes from database');
-        }
-      } catch (error) {
-        console.error('Transaction Error:', error);
-      }
-    };
-
-    fetchData();
-  }, []); // Empty dependency array means this effect runs once when the component mounts
-
   
   return (
     <div className="page-container">
@@ -97,20 +54,6 @@ const Tribute: React.FC = () => {
 
       </div>
       <div>
-       {tributes.map((tribute) => (
-
-        <div key={tribute.id} className="tribute-container">
-          <br/>
-          <MusicalNote 
-            id={tribute.id}
-            name={tribute.name}
-            tribute={tribute.tribute}
-            created_at={convertToUserFriendlyTime(tribute.created_at)}
-          />
-          <br/>
-          <br/>
-        </div>
-       ))}
       </div>
       <form onSubmit={handleSubmit}>
         <br/>
@@ -136,4 +79,4 @@ const Tribute: React.FC = () => {
   );
 };
 
-export default Tribute;
+export default Contact;

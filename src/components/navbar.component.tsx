@@ -1,27 +1,26 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import DonationIcon from "./donation-icon.component";
-import MusicPlayer from "./music-player.component";
 
 const NavBar: React.FC = () => {
+  const [isCollectionOpen, setCollectionOpen] = useState(false);
+
   return (
     <nav className="navbar-container">
-      <DonationIcon />
-      {/* <Link to="/donate">Donate</Link> */}
-      <MusicPlayer url="https://kxf-s3-music.s3.amazonaws.com/Luma's+Lullaby+-+Mario+Galaxy.mp3" />
-      <div className="spacer" />
-      <div
-       className="navbar-profile"
-       style={{ 
-        backgroundImage: `url('https://kxf-s3-public.s3.amazonaws.com/kathy-profile-4.JPG')`,
-        backgroundSize: 'cover', // Optional: adjust as needed
-        backgroundPosition: 'center' // Optional: adjust as needed
-      }}
-      />
       <Link to="/">Home</Link>
-      <Link to="/gallery">Gallery</Link>
-      <Link to="/tribute">Tribute</Link>
-      <Link to="/music">Melodies</Link>
-      <Link to="/visit">Visit</Link>
+      <div
+        className="dropdown-item"
+        onClick={() => setCollectionOpen(!isCollectionOpen)}
+      >
+        Collection
+      </div>
+      {isCollectionOpen && (
+        <div className="dropdown-menu">
+          <Link to="/gallery">Paintings</Link>
+          <Link to="/gallery">Charcoal</Link>
+          <Link to="/gallery">Drawings & sketches</Link>
+        </div>
+      )}
+      <Link to="/contact">Contact</Link>
     </nav>
   );
 };

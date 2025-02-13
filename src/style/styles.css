@@ -1,4 +1,3 @@
-
 /* ------------Global styles---------------- */
 
 body {
@@ -6,356 +5,79 @@ body {
   margin: 0;
   padding: 0;
   background-color: white;
+  display: flex;
+}
+
+/* Vertical Navigation Styles */
+nav.navbar-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: white; /* Plain white background */
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
 }
 
 nav div.spacer {
-  flex-grow: 1; /* Use flex-grow to push the links to the right */
-}
-
-nav.navbar-container {
-  background-image: url('https://kxf-s3-public.s3.amazonaws.com/sunset-charles-1.png');
-  background-size: cover; /* Ensure the image covers the entire area */
-  background-repeat: no-repeat; /* Prevent the background image from repeating */
-  background-position: center; /* Center the background image */
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
-  height: 300px; /* Fixed height for the navbar */
+  height: 0rem;
 }
 
 nav a {
-  padding-top: 80px; /* Adjust this value as needed to move text down */
-  padding-bottom: 0; /* Ensure bottom padding is 0 to maintain height */
-  color: #dce5e9;
+  color: #000000; /* Black text */
   text-decoration: none;
-  padding: 0.5rem 1rem; /* Adjusted padding for better button feel */
-  margin-left: -0.5rem; /* Decreased margin between links */
-  border-radius: 0.25rem;
-  transition: transform 0.3s ease; /* Use transform for the transition effect */
-  font-size: 25px; /* Set the default font size */
-}
-
-nav a:hover {
-  transform: scale(1.2); /* Increase the size of the hovered item */
-}
-.navbar-profile {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-  left: calc(50% - 100px); /* 50% minus half of the width */
-  z-index: 1;
-  transform: translateY(73%);
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
-}
-
-nav.footer-container {
-  background-image: url('https://kxf-s3-public.s3.amazonaws.com/lavendar-field.jpg');
-  background-size: cover; /* Ensure the image covers the entire area */
-  background-repeat: no-repeat; /* Prevent the background image from repeating */
-  background-position: center; /* Center the background image */
-  align-items: top;
-  display: flex-center;
-  justify-content: flex-end;
-  height: 150px; /* Fixed height for the navbar */
-  color: #0b3c52; /* Replace this with your desired color */
-}
-
-div.page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  margin-top: 150px;
-  margin-bottom: 40px;
-  margin-left: 100px;
-  margin-right: 100px;
-  padding: 40px;
-  overflow-y: auto;;
-}
-
-div.page-container::-webkit-scrollbar {
-  display: none;
-}
-
-h1.title {
-  font-size: 3rem; /* Increase the font size */
-  color: rgb(42, 25, 45);
-  font-family: Verdana, sans-serif
-}
-
-p {
-  font-size: 1.6rem; /* Increase the font size */
+  padding: 0.5rem 1rem;
+  margin: 0.25rem 0;
+  transition: transform 0.3s ease;
+  font-size: 18px;
   text-align: center;
-  line-height: 1.5; /* Increase the line height */
-}
-
-button {
-  padding: 1rem 2rem; /* Increase padding for larger button */
-  font-size: 1.2rem; /* Increase font size for larger button text */
-  background-color: #a591d6f3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #a591d6f3;
-}
-
-/* Hide the increment and decrement arrows */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  /* Firefox */
-  -moz-appearance: textfield;
-}
-
-div.sound-icon-container {
-  position: relative; /* Set the position to relative */
-  top: -30px; /* Move the container up by 10 pixels */
-  width: 24px; /* Set a fixed width for the container */
-  height: 24px; /* Set a fixed height for the container */
-}
-
-div.sound-icon {
-  fill: red; /* Change this to your desired color */
-  width: 24px; /* Set a fixed width for the icon */
-  height: 24px; /* Set a fixed height for the icon */
-}
-
-/* ------------Donation Page---------------- */
-/* Styles for the Donate page */
-
-.section-title {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-size: 1.6rem;
-}
-
-.donation-grid {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 40px;
-}
-
-.donation-card {
-  width: 120px;
-  height: 120px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.donation-card.selected {
-  transform: scale(1.1); /* Increase size when selected */
-  border-color: #a591d6f3; /* Change border color when selected */
-}
-
-.donation-label {
-  font-size: 2rem;
-}
-
-.custom-amount {
-  margin-top: 40px;
-  width: 100%;
-}
-
-input[type="text"] {
-  padding: 15px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  font-size: 1.6rem;
-}
-
-.payment-button {
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.10); /* Add a box shadow */
-  font-size: 1.6rem;
-  width: 100%; /* Make button full width */
-}
-
-.payment-button:hover {
-  background-color: #8b78bbf3;
-}
-
-/* ------------Home Page-------------------*/
-
-.homepage-content {
-  font-size: 22px;
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  margin-top: 40px;
-  margin-left: 240px;
-  margin-right: 240px;
-}
-
-/* ------------Life Page-------------------*/
-
-.lifepage-content {
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-  
-/* ------------Gallery Page---------------- */
-/* Lightbox.css */
-.lightbox-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw; /* Use viewport width for full width */
-  height: 100vh; /* Use viewport height for full height */
-  background-color: rgba(0, 0, 0, 0.8); /* Dimming overlay */
-  z-index: 1000; /* Ensure the lightbox is on top of everything */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.lightbox-content {
   position: relative;
 }
 
-.lightbox-image {
-  max-width: 90vw; /* Limit the width to 90vw */
-  max-height: 90vh; /* Limit the height to 90vh */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow to the image */
-}
-
-.lightbox-prev {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%) translateX(-100%); /* Position the arrow outside the left side of the photo */
-  background-color: transparent;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.lightbox-next {
-  position: absolute;
-  top: 50%;
-  right: 20px; /* Position the arrow outside the right side of the photo */
-  transform: translateY(-50%) translateX(100%); 
-  background-color: transparent;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.lightbox-prev {
-  left: 20px;
-}
-
-.lightbox-next {
-  right: 20px;
-}
-
-/* Gallery Page */
-.gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.gallery-image {
-  margin: 10px;
-}
-
-.gallery-image img {
-  width: 100%; /* Ensure images fill their container */
-  height: auto; /* Maintain aspect ratio */
+nav a:hover {
+  transform: scale(1.1);
 }
 
 
-/* ------------Visit Page---------------- */
-
-form {
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-}
-
-input,
-textarea {
-  padding: 15px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-  width: 100%;
-}
-
-.sent-message {
-  margin-top: 1rem;
-  color: #008000;
-}
-
-.contact-form-description {
-  margin-bottom: 2rem;
-  font-size: 20px;
-}
-
-.send-email-button {
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.10); /* Add a box shadow */
-  font-size: 1.6rem;
-  width: 100%; /* Make button full width */
-}
-
-.send-email-button:hover {
-  background-color: #8b78bbf3;
-}
-
-.visitpage-content {
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* ------------Tribute Page---------------- */
-
-.note-container {
+/* Adjust main content to accommodate sidebar */
+div.page-container {
   margin-left: 200px;
-  margin-right: 200px;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  width: calc(100% - 200px);
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
-.musical-note{
+.dropdown-item {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem 0;
+  transition: transform 0.3s ease;
+  font-size: 18px;
   text-align: center;
+  position: relative;
+  cursor: pointer; /* Make Collection clickable */
 }
 
-.tribute-title-container {
-  font-size: 22px;
+.dropdown-item:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  text-align: center; /* Center the dropdown items */
+  padding-left: 0; /* Remove unintended left indentation */
 }
 
-.upload-tribute-button {
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.10); /* Add a box shadow */
-  font-size: 1.6rem;
-  width: 100%; /* Make button full width */
+.dropdown-menu a {
+  font-size: 16px;
+  text-align: center;
+  padding: 0.5rem 1rem; /* Ensure same padding as other links */
 }
-
-
-/* ------------Music Page---------------- */
-
