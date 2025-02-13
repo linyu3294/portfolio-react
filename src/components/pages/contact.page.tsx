@@ -35,8 +35,8 @@ const Contact: React.FC = () => {
   return (
     <div className="page-container">
       <div className="contact-title-container">
-        <h1 className="title">Contact Us</h1>
-        <p>I’d love to hear from you! Send me an email 📩</p>
+        <h1 className="title">Contact Me</h1>
+        <p>I’d love to hear from you! Send me an email</p>
       </div>
 
       <form className="contact-form" onSubmit={handleSubmit}>
