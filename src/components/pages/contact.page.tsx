@@ -64,7 +64,9 @@ const Contact: React.FC = () => {
           required
         />
 
-        <button className="submit-button" type="submit">Send Message</button>
+      <div className="submit-button-container">
+        <button className="submit-button">Submit</button>
+      </div>
       </form>
     </div>
   );
