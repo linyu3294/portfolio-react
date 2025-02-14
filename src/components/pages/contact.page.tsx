@@ -15,20 +15,20 @@ const Contact: React.FC = () => {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Request-Headers": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
-          "x-api-key": `${import.meta.env.VITE_API_KEY}`,
+          "x-api-key": `${import.meta.env.VITE_CONTACT_API_KEY}`,
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ firstName, lastName, email, message }),
       });
 
       if (response.ok) {
         console.log("Message sent successfully");
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setMessage("");
       } else {
         console.error("Failed to send message");
       }
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
     } catch (error) {
       console.error("Error sending message:", error);
     }
