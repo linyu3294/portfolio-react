@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 const Contact: React.FC = () => {
-  const [name, setName] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
@@ -21,7 +22,8 @@ const Contact: React.FC = () => {
 
       if (response.ok) {
         console.log("Message sent successfully");
-        setName("");
+        setFirstName("");
+        setLastName("");
         setEmail("");
         setMessage("");
       } else {
@@ -42,12 +44,18 @@ const Contact: React.FC = () => {
       <form className="contact-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Your Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          placeholder="Your First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
           required
         />
-
+        <input
+          type="text"
+          placeholder="Your Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
         <input
           type="email"
           placeholder="Your Email"
@@ -55,7 +63,6 @@ const Contact: React.FC = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
         <textarea
           placeholder="Type your message here..."
           value={message}
@@ -63,7 +70,6 @@ const Contact: React.FC = () => {
           rows={10}
           required
         />
-
       <div className="submit-button-container">
         <button className="submit-button">Submit</button>
       </div>
