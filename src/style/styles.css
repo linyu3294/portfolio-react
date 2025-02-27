@@ -50,11 +50,6 @@ nav .dropdown-menu {
   padding-left: 0;
 }
 
-nav .dropdown-menu a {
-  font-size: 16px;
-  padding: 0.5rem 1rem;
-}
-
 div.page-container {
   margin-left: 200px;
   display: flex;
@@ -142,7 +137,7 @@ div.page-container {
 
   nav a,
   .dropdown-item {
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
     padding: 1rem;
   }
