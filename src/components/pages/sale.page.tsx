@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const products = [
     { title: "Product 1", description: "This is an amazing product.", price: "$10", image: "https://images.unsplash.com/photo-1740137660661-274c804a891d?q=80&w=2268&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
@@ -11,12 +12,19 @@ const products = [
   
 
 const Sale = () => {
+
+  const navigate = useNavigate();
+
+  const proceedToPaymentOption = () => {
+    navigate("/payment");
+  };
+
   return (
     <div className="page-container">
         <div className="cards-grid">
             {products.map((product, index) => (
                 <div key={index} className="card">
-                <img src={product.image} alt={product.title} className="card-image" />
+                <img style={{ cursor: 'pointer' }} onClick={()=>proceedToPaymentOption()} src={product.image} alt={product.title} className="card-image" />
                     <div className="card-content">
                         <h2 className="card-title">{product.title}</h2>
                         <p className="card-description">{product.description}</p>

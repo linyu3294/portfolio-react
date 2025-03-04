@@ -36,44 +36,44 @@ const Contact: React.FC = () => {
 
   return (
     <div className="page-container">
-      <div className="contact-title-container">
-        <h1 className="title">Contact Me</h1>
-        <p>I’d love to hear from you! Send me an email.</p>
+      <div className="form-container">
+        <form className="commission-form" onSubmit={handleSubmit}>
+          <label htmlFor="first-name">First Name:</label>
+          <input
+            type="text"
+            id="first-name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+          <label htmlFor="last-name">Last Name:</label>
+          <input
+            type="text"
+            id="last-name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label htmlFor="message">Message:</label>
+          <textarea
+            id="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
+          <button style={{
+              marginTop: "20px",
+            }} className="submit-btn" type="submit">Submit</button>
+        </form>
       </div>
-
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Your First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Your Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Type your message here..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          rows={10}
-          required
-        />
-      <div className="submit-button-container">
-        <button className="submit-button">Submit</button>
-      </div>
-      </form>
     </div>
   );
 };

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ArtCommissionForm = () => {
-  const [paymentMethod, setPaymentMethod] = useState<"paypal" | "social" | null>(null);
-  const [socialStep, setSocialStep] = useState(1);
   const [contactMethod] = useState("undefined");
 
+    const navigate = useNavigate();
+  
+  const proceedToPaymentOption = () => {
+      navigate("/payment");
+  };
+  
 
   return (
     <div className="page-container">
@@ -12,13 +17,24 @@ const ArtCommissionForm = () => {
         <form className="commission-form">
           {/* Artwork Details */}
           <label>Subject/Theme</label>
-          <input type="text" placeholder="Describe the artwork" />
+          <input 
+            type="text" 
+            placeholder="Describe the artwork" 
+            required/>
+
+          <label>Size</label>
+          <select defaultValue={"small"} required disabled={true}>
+            <option value={'small'}>4 X 8</option>
+            <option value={'medium'}>8 X 10</option>
+            <option value={'large'}>11 X 14</option>
+            <option>Other</option>
+          </select>
 
           <label>Style</label>
-          <select>
-            <option>Abstract</option>
-            <option>Modern</option>
-            <option>Traditional</option>
+          <select defaultValue={"abstract"} required>
+            <option value={'abstract'}>Abstract</option>
+            <option value={'modernn'}>Modern</option>
+            <option value={'traditional'}>Traditional</option>
             <option>Other</option>
           </select>
 
@@ -53,37 +69,12 @@ const ArtCommissionForm = () => {
             <option>Unlimited</option>
           </select>
 
-          {/* Payment Options */}
-          <label>Payment Method</label>
-          <div className="payment-options">
-            <div
-              className={`payment-card ${paymentMethod === "paypal" ? "selected" : ""}`}
-              onClick={() => setPaymentMethod("paypal")}
-            >
-              PayPal
-            </div>
-            <div
-              className={`payment-card ${paymentMethod === "social" ? "selected" : ""}`}
-              onClick={() => setPaymentMethod("social")}
-            >
-              Social Credit
-            </div>
-          </div>
-
-          {paymentMethod === "social" && (
-            <div className="social-steps">
-              <label>1. Verify Account</label>
-              <label>2. Receive Artist’s Work</label>
-              <label>3. Share Artist’s Work On Social Media</label>
-            </div>
-          )}
-
           {/* Contact & Updates */}
           <label>Preferred Contact Method</label>
-          <select>
-            <option>Email</option>
-            <option>Discord</option>
-            <option>Instagram DMs</option>
+          <select defaultValue={"email"} required>
+            <option value="email">Email</option>
+            <option value="discord">Discord</option>
+            <option value="instagram">Instagram DMs</option>
           </select>
 
           {contactMethod === "Email" && (
@@ -102,7 +93,7 @@ const ArtCommissionForm = () => {
             <option>Exclusive Rights</option>
           </select>
 
-          <button type="submit" className="submit-btn">Submit</button>
+          <button type="submit" onClick={()=>proceedToPaymentOption()} className="submit-btn">Next</button>
         </form>
       </div>
     </div>
