@@ -32,7 +32,6 @@ nav a,
   display: block;
   padding: 0.5rem 1rem;
   margin: 0.25rem 0;
-  font-size: 18px;
   text-align: center;
   position: relative;
   transition: transform 0.3s ease;
@@ -165,7 +164,6 @@ div.page-container {
   background-color: white;
   padding: 16px;
   border-radius: 5px;
-  box-shadow: 0px 4px 4px rgba(157, 83, 83, 0.1);
   text-align: center;
 }
 
@@ -198,4 +196,244 @@ div.page-container {
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 8px;
+}
+
+/* Commission Dialog Styles */
+.open-commission-btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem 0;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Modal overlay (darkens and blurs background) */
+.commission-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px); /* Adds blur effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content box */
+.commission-dialog-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  width: 500px; /* Increase width from 300px to 500px */
+  position: relative;
+  width: 100vw; /* Sets width to 50% of viewport width */
+  max-width: 600px; /* Prevents it from getting too wide */
+}
+
+/* Close (X) button styling */
+.close-commission-dialog-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-commission-dialog-icon:hover {
+  color: #bfb3b3;
+}
+
+.commission-option-container {
+  margin-bottom: 50px;
+}
+
+.commission-tier-label {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.commission-tier {
+  margin-right: 20px;
+  appearance: none;
+  width: 24px;  /* Adjust size */
+  height: 24px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.commission-tier:checked::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.commission-tier-description {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.commission-tier-page-navigation-button {
+  margin-top: 20px;
+  padding: 12px 18px;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: block;
+  width: 100%;
+}
+
+.commission-tier-page-navigation-button:hover {
+  background-color: #bfb3b3;
+}
+
+/* Art Commission Page Styles */
+
+/* Form Container */
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Form Title */
+.form-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5rem;
+}
+
+/* Form Fields */
+.commission-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.commission-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: black;
+  display: block;
+}
+
+/* Inputs and Selects */
+.commission-form input,
+.commission-form select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease-in-out;
+  margin-bottom: 1rem;
+}
+
+/* Focus Effect */
+.commission-form input:focus,
+.commission-form select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+/* Payment Options */
+.payment-options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.payment-card {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  background-color: #e5e7eb;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.payment-card:hover {
+  background-color: #d1d5db;
+}
+
+.payment-card.selected {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+/* Social Credit Steps */
+.social-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 1rem;
+}
+
+.social-steps button {
+  background-color: #2563eb;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.social-steps button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1.5rem;
+  }
 }

@@ -1,0 +1,159 @@
+/* Page Container */
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  /* Form Container */
+  .form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Form Title */
+  .form-container h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  /* Form Grid Layout */
+  .commission-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  /* Full Width Fields */
+  .full-width {
+    grid-column: span 2;
+  }
+  
+  /* Labels */
+  .commission-form label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Inputs and Selects */
+  .commission-form input,
+  .commission-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  /* Aligning All Fields Properly */
+  .commission-form input[type="text"],
+  .commission-form input[type="email"],
+  .commission-form input[type="date"],
+  .commission-form select {
+    box-sizing: border-box;
+  }
+  
+  /* Focus Effect */
+  .commission-form input:focus,
+  .commission-form select:focus {
+    border-color: #2563eb;
+    outline: none;
+  }
+  
+  /* Payment Options */
+  .payment-options {
+    display: flex;
+    gap: 10px;
+    grid-column: span 2;
+  }
+  
+  .payment-card {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background-color: #e5e7eb;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .payment-card:hover {
+    background-color: #d1d5db;
+  }
+  
+  .payment-card.selected {
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Social Credit Steps */
+  .social-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    grid-column: span 2;
+  }
+  
+  .social-steps button {
+    background-color: #2563eb;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .social-steps button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    grid-column: span 2;
+  }
+  
+  .submit-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .commission-form {
+      grid-template-columns: 1fr;
+    }
+  
+    .full-width {
+      grid-column: span 1;
+    }
+  
+    .payment-options {
+      flex-direction: column;
+    }
+  }
+  

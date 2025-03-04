@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import DialogBox from "./pages/commission.dialog";
 
 const NavBar: React.FC = () => {
   const [isCollectionOpen, setCollectionOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="navbar-container">
@@ -20,8 +22,11 @@ const NavBar: React.FC = () => {
           <Link to="/gallery">Drawings & sketches</Link>
         </div>
       )}
-      <Link to="/sale">Sale</Link>
-      <Link to="/commission">Commission</Link>
+      <Link to="/sale">For Sale</Link>
+      <div onClick={() => setIsOpen(true)} className="open-commission-btn">
+        Commision
+      </div>
+      <DialogBox isOpen={isOpen} setIsOpen={setIsOpen} />
       <Link to="/contact">Contact</Link>
     </nav>
   );
