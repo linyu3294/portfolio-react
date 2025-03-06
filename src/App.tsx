@@ -12,6 +12,7 @@ import Sale from "./components/pages/sale.page";
 import Commission from "./components/pages/commission.dialog";
 import CommissionForm from "./components/pages/commission-form.component";
 import Payment from "./components/pages/payment.component";
+import PrivacyPolicy from "./components/pages/privacy-policy.component";
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
         <Route path="/sale" Component={Sale} />
         <Route path="/commission" element={<Commission isOpen={true} setIsOpen={() => {}} />} />
         <Route path="/payment" Component={Payment} />
+        <Route path="/privacy-policy" Component={PrivacyPolicy} />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </Router>

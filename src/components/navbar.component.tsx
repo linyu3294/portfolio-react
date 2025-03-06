@@ -28,6 +28,7 @@ const NavBar: React.FC = () => {
       </div>
       <DialogBox isOpen={isOpen} setIsOpen={setIsOpen} />
       <Link to="/contact">Contact</Link>
+      <Link to="/privacy-policy">Contact</Link>
     </nav>
   );
 };
