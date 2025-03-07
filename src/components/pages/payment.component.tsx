@@ -21,7 +21,7 @@ const Payment = () => {
               className={`payment-card ${paymentMethod === "social" ? "selected" : undefined}`}
               onClick={() => setPaymentMethod("social")}
             >
-              Social Credit
+              Influence
             </div>
           </div>
 

@@ -17,9 +17,9 @@ const NavBar: React.FC = () => {
       </div>
       {isCollectionOpen && (
         <div className="dropdown-menu">
-          <Link to="/gallery">Paintings</Link>
+          <Link to="/gallery">Water Color</Link>
           <Link to="/gallery">Charcoal</Link>
-          <Link to="/gallery">Drawings & sketches</Link>
+          <Link to="/gallery">Drawings & Sketches</Link>
         </div>
       )}
       <Link to="/sale">For Sale</Link>
@@ -28,7 +28,6 @@ const NavBar: React.FC = () => {
       </div>
       <DialogBox isOpen={isOpen} setIsOpen={setIsOpen} />
       <Link to="/contact">Contact</Link>
-      <Link to="/privacy-policy">Contact</Link>
     </nav>
   );
 };
