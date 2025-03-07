@@ -25,7 +25,8 @@ const Payment = () => {
             </div>
           </div>
 
-          {paymentMethod === "card" && (
+          {
+            paymentMethod === "card" && (
             <div className="social-steps">
                 <label>1. Choosing this option will not bill</label>
             </div>

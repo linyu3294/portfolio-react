@@ -17,6 +17,7 @@ const NavBar: React.FC = () => {
       </div>
       {isCollectionOpen && (
         <div className="dropdown-menu">
+          <Link to="/gallery">Oil</Link>
           <Link to="/gallery">Water Color</Link>
           <Link to="/gallery">Charcoal</Link>
           <Link to="/gallery">Drawings & Sketches</Link>
