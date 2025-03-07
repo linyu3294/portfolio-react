@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Contact: React.FC = () => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+  const [sender, setSender] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
           "Access-Control-Request-Headers": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
           "x-api-key": `${import.meta.env.VITE_CONTACT_API_KEY}`,
         },
-        body: JSON.stringify({ firstName, lastName, email, message }),
+        body: JSON.stringify({ firstName, lastName, sender, message }),
       });
 
       if (response.ok) {
@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
       }
       setFirstName("");
       setLastName("");
-      setEmail("");
+      setSender("");
       setMessage("");
     } catch (error) {
       console.error("Error sending message:", error);
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
             type="email"
             id="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setSender(e.target.value)}
             required
           />
           <label htmlFor="message">Message:</label>
