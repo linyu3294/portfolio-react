@@ -52,7 +52,7 @@ const Payment: React.FC = () => {
               className={`payment-card ${paymentMethod === "stripe" ? "selected" : undefined}`}
               onClick={() => setPaymentMethod("stripe")}
             >
-              Debit / Credit
+              Stripe
             </div>
             <div
               className={`payment-card ${paymentMethod === "social" ? "selected" : undefined}`}
