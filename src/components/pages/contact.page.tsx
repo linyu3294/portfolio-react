@@ -14,16 +14,14 @@ const Contact: React.FC = () => {
 
     try {
       const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/portfolio-lambda-contact`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Access-Control-Allow-Origin": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           "Access-Control-Request-Headers": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
           "x-api-key": `${import.meta.env.VITE_CONTACT_API_KEY}`,
         },
         body: JSON.stringify({ firstName, lastName, sender, message }),
       });
-
       if (response.ok) {
         console.log("Message sent successfully");
       } else {
