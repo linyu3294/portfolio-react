@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
           <input
             type="email"
             id="email"
-            value={email}
+            value={sender}
             onChange={(e) => setSender(e.target.value)}
             required
           />
