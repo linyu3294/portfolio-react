@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="page-container">
+    <div className="page-container centered-container">
       <div className="form-container">
         <form className="commission-form" onSubmit={handleSubmit}>
           <label htmlFor="first-name">First Name:</label>

@@ -50,29 +50,27 @@ const PrivacyPolicy: React.FC  = () => {
         <li>Email address</li>
         <li>First name and last name</li>
         <li>Usage Data</li>
+        <li>Mailing Address</li>
+        <li>Instagram Followers Count</li>
         </ul>
         
         <h3 className="text-xl font-semibold mt-4">Usage Data</h3>
         <p>
-        Usage Data is collected automatically when using the Service and may include information
-        such as Your IP address, browser type, pages visited, time and date of visit, and other diagnostic data.
+            We may prompt you to authroize Instagram followers count. This data will not be stored by Our Service and Store. It will be only be used to determine if you are elgible to participate in promotional giveaways.
         </p>
         
         <h3 className="text-xl font-semibold mt-4">Tracking Technologies and Cookies</h3>
         <p>
-        We use Cookies and similar tracking technologies to track activity on Our Service and store
-        certain information. You can instruct Your browser to refuse all Cookies or to indicate when a
-        Cookie is being sent. However, if You do not accept Cookies, some parts of our Service may not
-        function properly.
+            We do not use Cookies and similar tracking technologies to track activity on Our Service and store
+            certain information. You can instruct Your browser to refuse all Cookies or to indicate when a
+            Cookie is being sent.
         </p>
         
         <h2 className="text-2xl font-semibold mt-6">Use of Your Personal Data</h2>
         <p>The Company may use Personal Data for the following purposes:</p>
         <ul className="list-disc list-inside ml-4">
         <li>To provide and maintain our Service</li>
-        <li>To manage Your Account</li>
-        <li>To contact You for updates or informational purposes</li>
-        <li>To provide You with news, special offers, and other relevant information</li>
+        <li>To contact You for informational purposes such as shipping details</li>
         </ul>
         
         <h2 className="text-2xl font-semibold mt-6">Your Privacy Rights</h2>

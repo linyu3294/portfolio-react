@@ -12,7 +12,7 @@ const ArtCommissionForm = () => {
   
 
   return (
-    <div className="page-container">
+    <div className="page-container centered-container ">
       <div className="form-container">
         <form className="commission-form">
           {/* Artwork Details */}

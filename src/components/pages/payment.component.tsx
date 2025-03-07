@@ -4,7 +4,7 @@ const Payment = () => {
   const [paymentMethod, setPaymentMethod] = useState<"card" | "social" | undefined>(undefined);
 
   return (
-    <div className="page-container">
+    <div className="page-container centered-container">
       <div className="form-container">
         <form className="payment-form">
 
@@ -34,7 +34,7 @@ const Payment = () => {
 
           {paymentMethod === "social" && (
             <div className="social-steps">
-                <label>1. Verify Account</label>
+                <label>1. Verify Instagram Account</label>
                 <label>2. Receive Artist’s Work</label>
                 <label>3. Share Artist’s Work On Social Media</label>
             </div>

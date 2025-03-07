@@ -52,7 +52,6 @@ nav .dropdown-menu {
 /* Global Formatting */
 div.page-container {
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: #f3f4f6;
@@ -61,13 +60,15 @@ div.page-container {
   margin-left: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: center top;
-  align-items: center;
   height: 100vh;
   width: calc(100% - 400px);
   overflow-y: auto;
   padding: 1rem;
   box-sizing: border-box;
+}
+
+.centered-container {
+  justify-content: center;
 }
 
 .form-container {
