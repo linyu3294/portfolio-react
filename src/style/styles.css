@@ -71,6 +71,22 @@ div.page-container {
   justify-content: center;
 }
 
+.notification-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 20px;
+  margin-left: 250px;
+  flex-direction: column;
+  height: 100vh;
+  width: calc(100% - 400px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  align-items: center;
+  height: 100vh;
+  padding-top: 200px;
+}
+
 .form-container {
   background: white;
   padding: 2rem;
@@ -103,6 +119,7 @@ div.page-container {
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container input[type="date"],
+.form-container input[type="number"],
 .form-container select {
   box-sizing: border-box;
 }

@@ -6,7 +6,7 @@ const PrivacyPolicy: React.FC  = () => {
     return (
     <div className="page-container">
     <div className="container mx-auto p-6 text-gray-800">
-        <h1 className="text-3xl font-bold mb-4">Privacy Policy for Yu Lin Portfolio</h1>
+        <h1 className="text-3xl font-bold mb-4">Privacy Policy for Yu Lin Art</h1>
         <p className="text-sm text-gray-500 mb-6">Last updated: March 06, 2025</p>
         <p>
         This Privacy Policy describes Our policies and procedures on the
@@ -49,14 +49,13 @@ const PrivacyPolicy: React.FC  = () => {
         <ul className="list-disc list-inside ml-4">
         <li>Email address</li>
         <li>First name and last name</li>
-        <li>Usage Data</li>
         <li>Mailing Address</li>
-        <li>Instagram Followers Count</li>
+        <li>Usage Data</li>
         </ul>
         
         <h3 className="text-xl font-semibold mt-4">Usage Data</h3>
         <p>
-            We may prompt you to authroize Instagram followers count. This data will not be stored by Our Service and Store. It will be only be used to determine if you are elgible to participate in promotional giveaways.
+            We may prompt you to let us know your Instagram Handle and Instagram Followers Count. This data will not be stored by Our Service and Store. It will be only be used to determine if you are elgible to participate in promotional giveaways.
         </p>
         
         <h3 className="text-xl font-semibold mt-4">Tracking Technologies and Cookies</h3>

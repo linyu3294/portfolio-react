@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Contact: React.FC = () => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,10 +37,22 @@ const Contact: React.FC = () => {
     }
   };
 
+  const sendAndNotify = async(e: React.FormEvent<HTMLFormElement>) =>{
+    handleSubmit(e);
+    const notificationState = {
+      influencePayForSale: false, 
+      currencyPayForSale: false, 
+      influencePayForCommission: false, 
+      currencyPayForCommission: false,
+      afterSubmittingContact : true,
+    }
+    navigate("/notification",  {state: notificationState})
+  }
+
   return (
     <div className="page-container centered-container">
       <div className="form-container">
-        <form className="commission-form" onSubmit={handleSubmit}>
+        <form className="commission-form" onSubmit={sendAndNotify}>
           <label htmlFor="first-name">First Name:</label>
           <input
             type="text"

@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ArtCommissionForm = () => {
+const ArtCommissionForm: React.FC = () => {
   const [contactMethod] = useState("undefined");
 
     const navigate = useNavigate();
   
   const proceedToPaymentOption = () => {
-      navigate("/payment");
+      navigate("/payment", {state: {isCommission: true, isSale: false}});
   };
   
-
   return (
     <div className="page-container centered-container ">
       <div className="form-container">
@@ -93,7 +92,11 @@ const ArtCommissionForm = () => {
             <option>Exclusive Rights</option>
           </select>
 
-          <button type="submit" onClick={()=>proceedToPaymentOption()} className="submit-btn">Next</button>
+          <button type="submit" 
+            onClick={()=>proceedToPaymentOption()} 
+            className="submit-btn">
+              Next
+          </button>
         </form>
       </div>
     </div>

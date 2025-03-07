@@ -62,14 +62,13 @@ const Commission: React.FC<DialogProps> = (props: DialogProps) => {
               </div>
             ))}
 
-            <button
+            {selected && <button
               onClick={handleNavigate}
-              disabled={!selected}
               className="submit-btn"
-            >
-              Request
-            </button>
-            
+              >
+                Request
+              </button>
+            }
           </div>
         </div>
       )}

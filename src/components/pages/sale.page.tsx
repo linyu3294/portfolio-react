@@ -10,12 +10,12 @@ const products = [
   ];
   
 
-const Sale = () => {
+const Sale: React.FC = () => {
 
   const navigate = useNavigate();
 
   const proceedToPaymentOption = () => {
-    navigate("/payment");
+    navigate("/payment", {state: {isCommission: false, isSale: true}});
   };
 
   return (
