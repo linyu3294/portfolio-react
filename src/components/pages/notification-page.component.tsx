@@ -64,10 +64,13 @@ const Notification: React.FC = () => {
                             Thank you for your purchase! 
                         </p>
                         <p>
-                            Your receipt will be emailed to you shortly. The artist will request your preferred mailing address. They will not keep this information longer than the duration of shipping and revisions.
+                            Your receipt will be emailed to you shortly.
                         </p>
                         <p>
-                            Allow 1-3 days for shipping arrangements. Once the item is shipped, you will receive your tracking number through email or your preferred communication method.
+                            Allow 1-3 days for shipping arrangements.
+                        </p>
+                        <p>
+                            Once the item is shipped, the artist will provide the tracking number.
                         </p>
                         <p>
                             Cheers! 🥂
