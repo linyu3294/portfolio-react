@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
           "Access-Control-Request-Headers": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
-          "Access-Control-Allow_Origin": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
+          "Access-Control-Allow-Origin": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
           "x-api-key": `${import.meta.env.VITE_PORTFOLIO_API_KEY}`,
         },
         body: JSON.stringify({ firstName, lastName, sender, message }),
