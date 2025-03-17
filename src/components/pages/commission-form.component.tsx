@@ -24,7 +24,7 @@ const ArtCommissionForm: React.FC = () => {
       }
   }}, [tierLevel])
 
-  const [email, setEmail] = useState<string | undefined>('Email');
+  const [email, setEmail] = useState<string | undefined>();
   const [subjectTheme, setSubjectTheme] = useState<string | undefined>(undefined);
   const [style, setStyle] = useState<string | undefined> ('Figurative');
   const [medium, setMedium] = useState<string | undefined>('Oil');
