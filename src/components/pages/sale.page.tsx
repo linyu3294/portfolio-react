@@ -15,7 +15,12 @@ const Sale: React.FC = () => {
   const navigate = useNavigate();
 
   const proceedToPaymentOption = () => {
-    navigate("/payment", {state: {isCommission: false, isSale: true}});
+    navigate("/payment", {state: 
+      { 
+        isCommission: false, 
+        isSale: true,
+      }
+    });
   };
 
   return (

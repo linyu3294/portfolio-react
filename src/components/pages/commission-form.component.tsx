@@ -2,52 +2,77 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export type CommissionState = {
-  tierLevel: 'tier1' | 'tier2' | 'tier3' | undefined,
+  tierLevel: 'Tier_1' | 'Tier_2' | 'Tier_3' | undefined,
 }
 
-
 const ArtCommissionForm: React.FC = () => {
-  const [contactMethod] = useState("undefined");
-
+  const navigate = useNavigate();
   const location = useLocation();
   const {tierLevel} = location.state;
-
   const [size, setSize] = useState<'small' | 'medium' | 'large' | undefined>(undefined);
 
   useEffect(()=>{
     if(tierLevel){
-      if(tierLevel === 'tier1') {
+      if(tierLevel === 'Tier_1') {
         setSize('small')
       }
-      else if(tierLevel === 'tier1') {
-        setSize('small')
+      else if(tierLevel === 'Tier_2') {
+        setSize('medium')
       }
-      else if(tierLevel === 'tier1') {
-        setSize('small')
+      else if(tierLevel === 'Ter_3') {
+        setSize('large')
       }
   }}, [tierLevel])
 
-  const [email, setEmail] = useState<string | undefined>(undefined);
-
+  const [email, setEmail] = useState<string | undefined>('Email');
   const [subjectTheme, setSubjectTheme] = useState<string | undefined>(undefined);
-  const [style, setStyle] = useState<string | undefined> (undefined);
-  const [medium, setMedium] = useState<string | undefined>(undefined);
-  const [background, setBackground] = useState<string | undefined> (undefined);
+  const [style, setStyle] = useState<string | undefined> ('Figurative');
+  const [medium, setMedium] = useState<string | undefined>('Oil');
+  const [background, setBackground] = useState<string | undefined> ('Artists_Choice');
   const [deadline, setDeadline] = useState<string | undefined> (undefined);
-  const [revisionAllowed, setRevisionAllowed] = useState<string | undefined>(undefined);
-  const [preferredContactMethod, setPreferredContactMethod] = useState<string | undefined>(undefined);
-  const [artworkUse, setArtworkUse] = useState<string | undefined>(undefined);
-
-  const navigate = useNavigate();
+  const [revisionAllowed, setRevisionAllowed] = useState<string | undefined>('None');
+  const [preferredContactMethod, setPreferredContactMethod] = useState<string | undefined>('Email');
+  const [artworkUse, setArtworkUse] = useState<string | undefined>('Personal');
+  const [socialMediaHandle, setSocialMediaHandle] = useState<string | undefined>(undefined);
   
   const proceedToPaymentOption = () => {
-      navigate("/payment", {state: {isCommission: true, isSale: false}});
+      setEmail(undefined);
+      setSize(undefined);
+      setSubjectTheme(undefined);
+      setStyle(undefined);
+      setMedium(undefined);
+      setBackground(undefined);
+      setDeadline(undefined);
+      setRevisionAllowed(undefined);
+      setPreferredContactMethod(undefined);
+      setArtworkUse(undefined);
+      setSocialMediaHandle(undefined);
+
+      navigate("/payment", {
+        state: 
+        {
+          isCommission: true, 
+          isSale: false,
+          tierLevel,
+          size,
+          email,
+          subjectTheme,
+          style,
+          medium,
+          background,
+          deadline,
+          revisionAllowed,
+          preferredContactMethod,
+          artworkUse,
+          socialMediaHandle
+        }
+      });
   };
   
   return (
-    <div className="page-container centered-container ">
+    <div className="page-container centered-container">
       <div className="form-container">
-        <form className="commission-form">
+        <form className="commission-form" onSubmit={proceedToPaymentOption}>
 
           {/* Artwork Details */}
           <label>Subject/Theme</label>
@@ -62,24 +87,24 @@ const ArtCommissionForm: React.FC = () => {
           <label>Size</label>
           <select 
             value={size}
-            defaultValue={"small"} 
+            defaultValue={"Small"} 
             required 
             disabled={true}
           >
-            <option value={'small'}>4 X 8</option>
-            <option value={'medium'}>8 X 10</option>
-            <option value={'large'}>11 X 14</option>
+            <option value={'Small'}>4 X 8</option>
+            <option value={'Medium'}>8 X 10</option>
+            <option value={'Large'}>11 X 14</option>
             <option>Other</option>
           </select>
 
           <label>Style</label>
           <select 
             value={style}
-            defaultValue={"figurative"} 
+            defaultValue={"Figurative"} 
             onChange={(e)=>{setStyle(e.target.value)}}
           required>
-            <option value={'figurative'}>Traditional</option>
-            <option value={'abstract'}>Abstract</option>
+            <option value={'Figurative'}>Figurative</option>
+            <option value={'Abstract'}>Abstract</option>
             <option>Other</option>
           </select>
 
@@ -89,9 +114,9 @@ const ArtCommissionForm: React.FC = () => {
             onChange = {(e)=>{setMedium(e.target.value)}}
           >
             <option>Oil</option>
+            <option value={'oil'}>Oil</option>
             <option value={'Watercolor'}>Watercolor</option>
             <option value={'Charcoal'}>Charcoal</option>
-            <option value={'Graphite'}>Graphite</option>
             <option value={'Pen'}>Pen</option>
             <option value={'Other'}>Other</option>
           </select>
@@ -124,7 +149,7 @@ const ArtCommissionForm: React.FC = () => {
             <option value='1'>1</option>
             <option value='2'>2</option>
             <option value='3'>3</option>
-            <option value='unlimited'>Unlimited</option>
+            <option value='Unlimited'>Unlimited</option>
           </select>
 
           {/* Contact & Updates */}
@@ -132,17 +157,18 @@ const ArtCommissionForm: React.FC = () => {
           <select
             value = {preferredContactMethod} 
             onChange={(e)=>{setPreferredContactMethod(e.target.value)}}
-            defaultValue={"email"} 
+            defaultValue={"Email"} 
           required>
-            <option value="email">Email</option>
-            <option value="discord">Discord</option>
-            <option value="instagram">Instagram DMs</option>
+            <option value="Email">Email</option>
+            <option value="Discord">Discord</option>
+            <option value="Instagram">Instagram DMs</option>
           </select>
 
-          {contactMethod === "Email" && (
+          {preferredContactMethod === "Email" && (
             <>
               <label>Email for Updates</label>
               <input 
+                required
                 type="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -150,10 +176,16 @@ const ArtCommissionForm: React.FC = () => {
               />
             </>
           )}
-          {(contactMethod === "discord" || contactMethod === "instagram") && (
+          {(preferredContactMethod === "Discord" || preferredContactMethod === "Instagram") && (
             <>
               <label>Email for Updates</label>
-              <input type="email" placeholder="Your email" />
+              <input 
+                required
+                type="text" 
+                value={socialMediaHandle}
+                placeholder="Your Social Media Handle"
+                onChange={(e) => {setSocialMediaHandle(e.target.value)}}
+              />
             </>
           )}
 
@@ -167,9 +199,7 @@ const ArtCommissionForm: React.FC = () => {
             <option value='Exclusive_Rights'>Exclusive Rights</option>
           </select>
 
-          <button type="submit" 
-            onClick={()=>proceedToPaymentOption()} 
-            className="submit-btn">
+          <button className="submit-btn" type="submit">
               Next
           </button>
         </form>
