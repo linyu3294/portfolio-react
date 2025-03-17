@@ -58,10 +58,6 @@ const Payment: React.FC = () => {
     navigate("/notification", {state: notificationState});
   }
 
-  const sendInfluencerCommission = () => {
-    // TODO: Send an email to notify the artist about this influencer commission
-    navigate("/notification", {state: notificationState});
-  }
 
   useEffect(()=>{
     if(!isCommission && !isSale) {
@@ -70,10 +66,17 @@ const Payment: React.FC = () => {
   }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    if (isCommission){
+      await handleSubmitCommission(e)
+      navigateToNotificationPage();
+    }
+  }
+
+  const handleSubmitCommission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/portfolio-lambda-contact`, {
+      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/portfolio-commission-form`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +97,9 @@ const Payment: React.FC = () => {
             preferredContactMethod,
             artworkUse,
             socialMediaHandle,
-
+            paymentMethod,
+            instagramHandle,
+            instagramFollowersCount
           }),
       });
       if (response.ok) {
@@ -151,21 +156,10 @@ const Payment: React.FC = () => {
             </div>
           )}
           {
-            paymentMethod === "stripe" &&  <button 
+            paymentMethod && <button 
             type="submit" 
-            onClick={navigateToNotificationPage} 
             className="submit-btn">
               Submit
-            </button>
-          }
-          {
-            paymentMethod === "social" &&  
-            <button 
-              disabled={!paymentMethod && !instagramHandle && !instagramFollowersCount}
-              type="submit" 
-              onClick={sendInfluencerCommission} 
-              className="submit-btn">
-                Next
             </button>
           }
         </form>
