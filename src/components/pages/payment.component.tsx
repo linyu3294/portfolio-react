@@ -76,7 +76,7 @@ const Payment: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/portfolio-commission-form`, {
+      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/commission`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

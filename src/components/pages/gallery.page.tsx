@@ -61,7 +61,7 @@ const GalleryView = () => {
       //     * x-amz-meta-width
       // Use Postman to debug. Look into CloudWatch > Log groups > /aws/lambda/portfolio-lambda-gallery for any error handling. Sometimes the response can be null or not return the image if the key does not match the name of the file.
       try {
-        const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/portfolio-lambda-gallery`, {
+        const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/gallery`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

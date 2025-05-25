@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/portfolio-lambda-contact`, {
+      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
