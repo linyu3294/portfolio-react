@@ -14,7 +14,7 @@ export type CommissionState = {
   deadline: string | undefined;
   revisionAllowed: string;
   preferredContactMethod: string;
-  artworkUse: string;
+  artWorkUse: string;
   socialMediaHandle: string;
 }
 
@@ -107,7 +107,7 @@ const Payment: React.FC = () => {
           deadline: state.deadline,
           revisionAllowed: state.revisionAllowed,
           preferredContactMethod: state.preferredContactMethod,
-          artworkUse: state.artworkUse,
+          artWorkUse: state.artWorkUse,
           socialMediaHandle: state.socialMediaHandle,
           paymentMethod,
           instagramHandle,

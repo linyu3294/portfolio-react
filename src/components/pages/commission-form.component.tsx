@@ -32,7 +32,7 @@ const ArtCommissionForm: React.FC = () => {
   const [deadline, setDeadline] = useState<string | undefined> (undefined);
   const [revisionAllowed, setRevisionAllowed] = useState<string | undefined>('None');
   const [preferredContactMethod, setPreferredContactMethod] = useState<string | undefined>('Email');
-  const [artworkUse, setArtworkUse] = useState<string | undefined>('Personal');
+  const [artWorkUse, setArtWorkUse] = useState<string | undefined>('Personal');
   const [socialMediaHandle, setSocialMediaHandle] = useState<string | undefined>(undefined);
   
   const proceedToPaymentOption = () => {
@@ -45,7 +45,7 @@ const ArtCommissionForm: React.FC = () => {
       setDeadline(undefined);
       setRevisionAllowed(undefined);
       setPreferredContactMethod(undefined);
-      setArtworkUse(undefined);
+      setArtWorkUse(undefined);
       setSocialMediaHandle(undefined);
 
       navigate("/payment", {
@@ -63,7 +63,7 @@ const ArtCommissionForm: React.FC = () => {
           deadline,
           revisionAllowed,
           preferredContactMethod,
-          artworkUse,
+          artWorkUse,
           socialMediaHandle
         }
       });
@@ -191,8 +191,8 @@ const ArtCommissionForm: React.FC = () => {
 
           <label>Artwork Use</label>
           <select 
-            value={artworkUse}
-            onChange={(e)=>{setArtworkUse(e.target.value)}}
+            value={artWorkUse}
+            onChange={(e)=>{setArtWorkUse(e.target.value)}}
             >
             <option value='Personal'>Personal</option>
             <option value='Commercial'>Commercial</option>
