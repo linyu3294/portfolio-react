@@ -14,11 +14,15 @@ const Sale: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const proceedToPaymentOption = () => {
+  const proceedToPaymentOption = (product: typeof products[0]) => {
     navigate("/payment", {state: 
       { 
         isCommission: false, 
         isSale: true,
+        title: product.title,
+        description: product.description,
+        price: product.price,
+        image: product.image
       }
     });
   };
@@ -28,7 +32,7 @@ const Sale: React.FC = () => {
         <div className="cards-grid">
             {products.map((product, index) => (
                 <div key={index} className="card">
-                <img style={{ cursor: 'pointer' }} onClick={()=>proceedToPaymentOption()} src={product.image} alt={product.title} className="card-image" />
+                <img style={{ cursor: 'pointer' }} onClick={()=>proceedToPaymentOption(product)} src={product.image} alt={product.title} className="card-image" />
                     <div className="card-content">
                         <h2 className="card-title">{product.title}</h2>
                         <p className="card-description">{product.description}</p>

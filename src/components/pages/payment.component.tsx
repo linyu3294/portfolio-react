@@ -16,12 +16,17 @@ export type PaymentState = {
   preferredContactMethod: string,
   artworkUse: string,
   socialMediaHandle: string;
+  title: string;
+  description: string;
+  price: number;
+  image: string;
 }
 
 const Payment: React.FC = () => {
   const [paymentMethod, setPaymentMethod] = useState<"stripe" | "social" | undefined>(undefined);
   const [instagramHandle, setInstagramHandle] = useState<string | undefined> (undefined);
   const [instagramFollowersCount, setinstagramFollowersCount] = useState<number | undefined> (undefined);
+  const [email, setEmail] = useState<string | undefined>(undefined);
 
   const location = useLocation();
   const { 
@@ -29,7 +34,6 @@ const Payment: React.FC = () => {
     isSale,
     tierLevel,
     size,
-    email,
     subjectTheme,
     style,
     medium,
@@ -39,6 +43,10 @@ const Payment: React.FC = () => {
     preferredContactMethod,
     artworkUse,
     socialMediaHandle,
+    title,
+    description,
+    price,
+    image
   } = location.state as PaymentState || {isCommission: false, isSale: false}
   const influencePayForSale = isSale && paymentMethod === 'social';
   const currencyPayForSale = isSale && paymentMethod === 'stripe';
@@ -68,6 +76,9 @@ const Payment: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     if (isCommission){
       await handleSubmitCommission(e)
+      navigateToNotificationPage();
+    } else if (isSale){
+      await handleSubmitSale(e)
       navigateToNotificationPage();
     }
   }
@@ -112,6 +123,38 @@ const Payment: React.FC = () => {
     }
   };
 
+  const handleSubmitSale = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/sales`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          "Access-Control-Request-Headers": `${import.meta.env.VITE_CLIENT_DOMAIN}`,
+          "x-api-key": `${import.meta.env.VITE_PORTFOLIO_API_KEY}`,
+        },
+        body: JSON.stringify({
+          email,
+          title,
+          description,
+          price,
+          image,
+          paymentMethod,
+          instagramHandle: paymentMethod === 'social' ? instagramHandle : undefined,
+          followersCount: paymentMethod === 'social' ? instagramFollowersCount : undefined
+        }),
+      });
+      if (response.ok) {
+        console.log("Sale request sent successfully");
+      } else {
+        console.error("Failed to send sale request");
+      }
+    } catch (error) {
+      console.error("Error sending sale request:", error);
+    }
+  };
+
   return (
     <div className="page-container centered-container">
       <div className="form-container">
@@ -153,6 +196,20 @@ const Payment: React.FC = () => {
                   value={instagramFollowersCount}
                   onChange={(e) => setinstagramFollowersCount(e.target.valueAsNumber)}
                   required/>
+            </div>
+          )}
+          {isSale && (
+            <div className="sale-details">
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <p>Price: {price}</p>
+              <label>Email</label>
+              <input 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
           )}
           {
