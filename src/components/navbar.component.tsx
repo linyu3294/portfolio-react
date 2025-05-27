@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
     <nav className="navbar-container">
       <Link to="/">Home</Link>
       
-      <Link to="/sale">For Sale</Link>
+      <Link to="/sale">Sale</Link>
       <div
         className="dropdown-item"
         onClick={() => setCollectionOpen(!isCollectionOpen)}
