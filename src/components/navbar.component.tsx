@@ -9,23 +9,25 @@ const NavBar: React.FC = () => {
   return (
     <nav className="navbar-container">
       <Link to="/">Home</Link>
+      
+      <Link to="/sale">For Sale</Link>
       <div
         className="dropdown-item"
         onClick={() => setCollectionOpen(!isCollectionOpen)}
       >
         Collection
       </div>
+
       {isCollectionOpen && (
         <div className="dropdown-menu">
-          <Link to="/gallery">Oil</Link>
-          <Link to="/gallery">Water Color</Link>
-          <Link to="/gallery">Charcoal</Link>
-          <Link to="/gallery">Drawings & Sketches</Link>
+          <Link to="/gallery" onClick={() => setCollectionOpen(false)}>Oil</Link>
+          <Link to="/gallery" onClick={() => setCollectionOpen(false)}>Water Color</Link>
+          <Link to="/gallery" onClick={() => setCollectionOpen(false)}>Charcoal</Link>
+          <Link to="/gallery" onClick={() => setCollectionOpen(false)}>Drawings & Sketches</Link>
         </div>
       )}
-      <Link to="/sale">For Sale</Link>
-      <div onClick={() => setIsOpen(true)} className="open-commission-btn">
-        Commision
+      <div onClick={() => setIsOpen(true)} className="dropdown-item">
+        Commission
       </div>
       <DialogBox isOpen={isOpen} setIsOpen={setIsOpen} />
       <Link to="/contact">Contact</Link>

@@ -43,10 +43,16 @@ nav a:hover,
   transform: scale(1.1);
 }
 
-nav .dropdown-menu {
+.dropdown-menu {
   display: flex;
   flex-direction: column;
-  padding-left: 0;
+}
+
+.dropdown-menu a {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem 0;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 /* Global Formatting */
@@ -179,6 +185,24 @@ textarea {
     padding: 1rem;
   }
 
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 200px;
+  }
+
+  .dropdown-menu a {
+    padding: 0.75rem 1rem;
+    margin: 0;
+    text-align: center;
+  }
+
   div.page-container {
     margin-left: 0;
     width: 100%;
@@ -237,17 +261,6 @@ textarea {
 }
 
 /* Commission Dialog Styles */
-.open-commission-btn {
-  display: block;
-  padding: 0.5rem 1rem;
-  margin: 0.25rem 0;
-  font-size: 18px;
-  text-align: center;
-  position: relative;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
 /* Modal overlay (darkens and blurs background) */
 .commission-dialog-overlay {
   position: fixed;
@@ -329,4 +342,8 @@ textarea {
 .commission-tier-description {
   margin-top: 5px;
   padding: 5px;
+}
+
+.dropdown-menu a {
+  text-align: center;
 }
