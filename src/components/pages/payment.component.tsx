@@ -79,8 +79,8 @@ const Payment: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
     try {
+      setIsSubmitting(true);
       if (isCommissionState(state)) {
         await handleSubmitCommission(e);
       } else if (isSaleState(state)) {

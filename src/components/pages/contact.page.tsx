@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ErrorToast from "./error.toast";
 
 const Contact: React.FC = () => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [sender, setSender] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    try {
       const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/contact`, {
         method: 'POST',
         headers: {
@@ -31,13 +32,9 @@ const Contact: React.FC = () => {
       setLastName("");
       setSender("");
       setMessage("");
-    } catch (error) {
-      console.error("Error sending message:", error);
-    }
   };
 
   const sendAndNotify = async(e: React.FormEvent<HTMLFormElement>) =>{
-    handleSubmit(e);
     const notificationState = {
       influencePayForSale: false, 
       currencyPayForSale: false, 
@@ -45,13 +42,22 @@ const Contact: React.FC = () => {
       currencyPayForCommission: false,
       afterSubmittingContact : true,
     }
-    navigate("/notification",  {state: notificationState})
+    try{
+      await handleSubmit(e);
+      navigate("/notification",  {state: notificationState})
+    } catch (error) {
+      console.error("Error submitting payment:", error);
+      setError("Failed to submit your request. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <div className="page-container centered-container">
       <div className="form-container">
         <form className="commission-form" onSubmit={sendAndNotify}>
+          {error && <ErrorToast message={error} onClose={() => setError(null)} />}
           <label htmlFor="first-name">First Name:</label>
           <input
             type="text"
@@ -83,9 +89,12 @@ const Contact: React.FC = () => {
             onChange={(e) => setMessage(e.target.value)}
             required
           />
-          <button style={{
-              marginTop: "20px",
-            }} className="submit-btn" type="submit">Submit</button>
+          <button 
+            className="submit-btn" 
+            type="submit"
+            disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+            </button>
         </form>
       </div>
     </div>
