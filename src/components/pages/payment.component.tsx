@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import ErrorToast from "./error.toast";
 
 export type CommissionState = {
   isCommission: true;
@@ -35,6 +36,8 @@ const Payment: React.FC = () => {
   const [instagramHandle, setInstagramHandle] = useState<string | undefined> (undefined);
   const [instagramFollowersCount, setinstagramFollowersCount] = useState<number | undefined> (undefined);
   const [email, setEmail] = useState<string | undefined>(undefined);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const location = useLocation();
   const state = location.state as PaymentState || {isCommission: false, isSale: false};
@@ -75,12 +78,20 @@ const Payment: React.FC = () => {
   }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    if (isCommissionState(state)){
-      await handleSubmitCommission(e)
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      if (isCommissionState(state)) {
+        await handleSubmitCommission(e);
+      } else if (isSaleState(state)) {
+        await handleSubmitSale(e);
+      }
       navigateToNotificationPage();
-    } else if (isSaleState(state)){
-      await handleSubmitSale(e)
-      navigateToNotificationPage();
+    } catch (error) {
+      console.error("Error submitting payment:", error);
+      setError("Failed to submit your request. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -114,13 +125,13 @@ const Payment: React.FC = () => {
           instagramFollowersCount
         }),
       });
-      if (response.ok) {
-        console.log("Commission request sent successfully");
-      } else {
-        console.error("Failed to send commission request");
+      if (!response.ok) {
+        throw new Error("Failed to send commission request");
       }
+      console.log("Commission request sent successfully");
     } catch (error) {
       console.error("Error sending commission request:", error);
+      throw error;
     }
   };
 
@@ -148,18 +159,19 @@ const Payment: React.FC = () => {
           followersCount: paymentMethod === 'social' ? instagramFollowersCount : undefined
         }),
       });
-      if (response.ok) {
-        console.log("Sale request sent successfully");
-      } else {
-        console.error("Failed to send sale request");
+      if (!response.ok) {
+        throw new Error("Failed to send sale request");
       }
+      console.log("Sale request sent successfully");
     } catch (error) {
       console.error("Error sending sale request:", error);
+      throw error;
     }
   };
 
   return (
     <div className="page-container centered-container">
+      {error && <ErrorToast message={error} onClose={() => setError(null)} />}
       <div className="form-container">
         <form className="payment-form" onSubmit={handleSubmit}>
           <h2>Payment Method</h2>
@@ -218,8 +230,9 @@ const Payment: React.FC = () => {
           {
             paymentMethod && <button 
             type="submit" 
-            className="submit-btn">
-              Submit
+            className="submit-btn"
+            disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
           }
         </form>
