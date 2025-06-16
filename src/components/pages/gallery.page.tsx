@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Gallery from "react-photo-gallery";
+import { useLocation } from "react-router-dom";
 
 interface Content {
   id: string;
@@ -50,9 +51,14 @@ const Lightbox = React.memo(({ content, photoIndex, onClose, setPhotoIndex }: {
 
 
 const GalleryView = () => {
+
+  const location = useLocation();
   const [photoIndex, setPhotoIndex] = React.useState<number | null>(null);
   const [content, setContent] = React.useState<Content[]>([]);
 
+  const medium = location.search.split('=')[1];
+  console.log(medium);
+  
   useEffect(() => {
     const getGalleryItems = async () => {
       // ## Upload JPGs in S3 Folder
@@ -61,7 +67,7 @@ const GalleryView = () => {
       //     * x-amz-meta-width
       // Use Postman to debug. Look into CloudWatch > Log groups > /aws/lambda/portfolio-lambda-gallery for any error handling. Sometimes the response can be null or not return the image if the key does not match the name of the file.
       try {
-        const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/gallery`, {
+        const response = await fetch(`${import.meta.env.VITE_AWS_API_GATEWAY_URL}/gallery?medium=${medium}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

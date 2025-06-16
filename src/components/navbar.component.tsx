@@ -20,10 +20,10 @@ const NavBar: React.FC = () => {
 
       {isCollectionOpen && (
         <div className="dropdown-menu">
-          <Link to="/gallery" onClick={() => setCollectionOpen(false)}>Oil</Link>
-          <Link to="/gallery" onClick={() => setCollectionOpen(false)}>Water Color</Link>
-          <Link to="/gallery" onClick={() => setCollectionOpen(false)}>Charcoal</Link>
-          <Link to="/gallery" onClick={() => setCollectionOpen(false)}>Drawings & Sketches</Link>
+          <Link to="/gallery?medium=oil-color" onClick={() => setCollectionOpen(false)}>Oil</Link>
+          <Link to="/gallery?medium=watercolor" onClick={() => setCollectionOpen(false)}>Water Color</Link>
+          <Link to="/gallery?medium=charcoal" onClick={() => setCollectionOpen(false)}>Charcoal</Link>
+          <Link to="/gallery?medium=drawings-sketches" onClick={() => setCollectionOpen(false)}>Drawings & Sketches</Link>
         </div>
       )}
       <div onClick={() => setIsOpen(true)} className="dropdown-item">
